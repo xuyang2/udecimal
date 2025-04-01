@@ -10,7 +10,6 @@ import (
 	"fmt"
 	"math/big"
 	"math/bits"
-	"unsafe"
 )
 
 const (
@@ -279,10 +278,6 @@ func quoRem64(u u128, v uint64) (q u128, r uint64) {
 	}
 
 	return u.QuoRem64(v)
-}
-
-func unsafeStringToBytes(s string) []byte {
-	return unsafe.Slice(unsafe.StringData(s), len(s))
 }
 
 // MarshalJSON implements the [json.Marshaler] interface.

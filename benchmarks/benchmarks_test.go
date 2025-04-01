@@ -34,7 +34,8 @@ func BenchmarkParse(b *testing.B) {
 		// shopspring benchmark
 		b.Run(fmt.Sprintf("ss/%s", tc), func(b *testing.B) {
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_, _ = ss.NewFromString(tc)
 			}
 		})
@@ -43,14 +44,16 @@ func BenchmarkParse(b *testing.B) {
 		b.Run(fmt.Sprintf("eric/%s", tc), func(b *testing.B) {
 			a := ed.New(0, 0)
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_, _ = a.SetString(tc)
 			}
 		})
 
 		b.Run(fmt.Sprintf("udec/%s", tc), func(b *testing.B) {
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_, _ = udecimal.Parse(tc)
 			}
 		})
@@ -67,7 +70,8 @@ func BenchmarkParseFallBack(b *testing.B) {
 		// shopspring benchmark
 		b.Run(fmt.Sprintf("ss/%s", tc), func(b *testing.B) {
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_, _ = ss.NewFromString(tc)
 			}
 		})
@@ -76,14 +80,16 @@ func BenchmarkParseFallBack(b *testing.B) {
 		b.Run(fmt.Sprintf("eric/%s", tc), func(b *testing.B) {
 			a := ed.New(0, 0)
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_, _ = a.SetString(tc)
 			}
 		})
 
 		b.Run(fmt.Sprintf("udec/%s", tc), func(b *testing.B) {
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_, _ = udecimal.Parse(tc)
 			}
 		})
@@ -106,7 +112,8 @@ func BenchmarkString(b *testing.B) {
 			bb := ss.RequireFromString(tc)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = bb.String()
 			}
 		})
@@ -119,7 +126,8 @@ func BenchmarkString(b *testing.B) {
 			a.SetString(tc)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.String()
 			}
 		})
@@ -128,7 +136,8 @@ func BenchmarkString(b *testing.B) {
 			bb := udecimal.MustParse(tc)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = bb.String()
 			}
 		})
@@ -147,7 +156,8 @@ func BenchmarkStringFallBack(b *testing.B) {
 			bb := ss.RequireFromString(tc)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = bb.String()
 			}
 		})
@@ -160,7 +170,8 @@ func BenchmarkStringFallBack(b *testing.B) {
 			a.SetString(tc)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.String()
 			}
 		})
@@ -169,7 +180,8 @@ func BenchmarkStringFallBack(b *testing.B) {
 			bb := udecimal.MustParse(tc)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = bb.String()
 			}
 		})
@@ -196,7 +208,8 @@ func BenchmarkAdd(b *testing.B) {
 			bb := ss.RequireFromString(tc.b)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.Add(bb)
 			}
 		})
@@ -207,7 +220,8 @@ func BenchmarkAdd(b *testing.B) {
 			bb := edDecimal(tc.b)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.Add(a, bb)
 			}
 		})
@@ -220,7 +234,8 @@ func BenchmarkAdd(b *testing.B) {
 			require.NoError(b, err)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.Add(bb)
 			}
 		})
@@ -246,7 +261,8 @@ func BenchmarkSub(b *testing.B) {
 			bb := ss.RequireFromString(tc.b)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.Sub(bb)
 			}
 		})
@@ -257,7 +273,8 @@ func BenchmarkSub(b *testing.B) {
 			bb := edDecimal(tc.b)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.Sub(a, bb)
 			}
 		})
@@ -270,7 +287,8 @@ func BenchmarkSub(b *testing.B) {
 			require.NoError(b, err)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.Sub(bb)
 			}
 		})
@@ -297,7 +315,8 @@ func BenchmarkMul(b *testing.B) {
 			bb := ss.RequireFromString(tc.b)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.Mul(bb)
 			}
 		})
@@ -308,7 +327,8 @@ func BenchmarkMul(b *testing.B) {
 			bb := edDecimal(tc.b)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.Mul(a, bb)
 			}
 		})
@@ -321,7 +341,8 @@ func BenchmarkMul(b *testing.B) {
 			require.NoError(b, err)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.Mul(bb)
 			}
 		})
@@ -350,7 +371,8 @@ func BenchmarkDiv(b *testing.B) {
 			bb := ss.RequireFromString(tc.b)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.Div(bb)
 			}
 		})
@@ -361,7 +383,8 @@ func BenchmarkDiv(b *testing.B) {
 			bb := edDecimal(tc.b)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.Quo(a, bb)
 			}
 		})
@@ -374,7 +397,8 @@ func BenchmarkDiv(b *testing.B) {
 			require.NoError(b, err)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_, _ = a.Div(bb)
 			}
 		})
@@ -396,7 +420,8 @@ func BenchmarkFallbackDiv(b *testing.B) {
 			bb := ss.RequireFromString(tc.b)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.Div(bb)
 			}
 		})
@@ -407,7 +432,8 @@ func BenchmarkFallbackDiv(b *testing.B) {
 			bb := edDecimal(tc.b)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.Quo(a, bb)
 			}
 		})
@@ -420,7 +446,8 @@ func BenchmarkFallbackDiv(b *testing.B) {
 			require.NoError(b, err)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_, _ = a.Div(bb)
 			}
 		})
@@ -443,7 +470,8 @@ func BenchmarkPow(b *testing.B) {
 			bb := ss.NewFromInt(int64(tc.b))
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.Pow(bb)
 			}
 		})
@@ -456,7 +484,8 @@ func BenchmarkPow(b *testing.B) {
 			c := ed.New(0, 0)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_ = a.Context.Pow(c, a, bb)
 			}
 		})
@@ -465,7 +494,8 @@ func BenchmarkPow(b *testing.B) {
 			a := udecimal.MustParse(tc.a)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_, _ = a.PowInt32(int32(tc.b))
 			}
 		})
@@ -488,7 +518,8 @@ func BenchmarkMarshalJSON(b *testing.B) {
 			bb := ss.RequireFromString(tc)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_, _ = bb.MarshalJSON()
 			}
 		})
@@ -498,7 +529,8 @@ func BenchmarkMarshalJSON(b *testing.B) {
 			bb := edDecimal(tc)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_, _ = bb.MarshalText()
 			}
 		})
@@ -507,7 +539,8 @@ func BenchmarkMarshalJSON(b *testing.B) {
 			bb := udecimal.MustParse(tc)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_, _ = bb.MarshalJSON()
 			}
 		})
@@ -530,7 +563,8 @@ func BenchmarkUnmarshalJSON(b *testing.B) {
 			data, _ := ss.RequireFromString(tc).MarshalJSON()
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				var d ss.Decimal
 				_ = d.UnmarshalJSON(data)
 			}
@@ -541,7 +575,8 @@ func BenchmarkUnmarshalJSON(b *testing.B) {
 			data, _ := edDecimal(tc).MarshalText()
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				var d ed.Big
 				_ = d.UnmarshalJSON(data)
 			}
@@ -551,7 +586,8 @@ func BenchmarkUnmarshalJSON(b *testing.B) {
 			data, _ := udecimal.MustParse(tc).MarshalJSON()
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				var d udecimal.Decimal
 				_ = d.UnmarshalJSON(data)
 			}
@@ -574,7 +610,8 @@ func BenchmarkMarshalBinary(b *testing.B) {
 			bb := ss.RequireFromString(tc)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_, _ = bb.MarshalBinary()
 			}
 		})
@@ -583,7 +620,8 @@ func BenchmarkMarshalBinary(b *testing.B) {
 			bb := udecimal.MustParse(tc)
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				_, _ = bb.MarshalBinary()
 			}
 		})
@@ -605,7 +643,8 @@ func BenchmarkUnmarshalBinary(b *testing.B) {
 			data, _ := ss.RequireFromString(tc).MarshalBinary()
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				var d ss.Decimal
 				_ = d.UnmarshalBinary(data)
 			}
@@ -615,7 +654,8 @@ func BenchmarkUnmarshalBinary(b *testing.B) {
 			data, _ := udecimal.MustParse(tc).MarshalBinary()
 
 			b.ResetTimer()
-			for range b.N {
+			// for range b.N {
+			for i := 0; i < b.N; i++ {
 				var d udecimal.Decimal
 				_ = d.UnmarshalBinary(data)
 			}

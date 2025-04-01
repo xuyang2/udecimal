@@ -10,7 +10,7 @@ High performance, high precision, zero allocation fixed-point decimal number for
 
 ## Installation
 
-Supported version: Go >= 1.23
+Supported version: Go >= 1.18
 
 ```sh
 go get github.com/quagmt/udecimal

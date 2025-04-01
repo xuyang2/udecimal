@@ -635,7 +635,7 @@ func (d Decimal) QuoRem(e Decimal) (Decimal, Decimal, error) {
 		return q, r, nil
 	}
 
-	factor := max(d.prec, e.prec)
+	factor := _max(d.prec, e.prec)
 
 	// overflow, try with *big.Int
 	dBig := d.coef.GetBig()
@@ -669,7 +669,7 @@ func tryQuoRemU128(d, e Decimal) (Decimal, Decimal, error) {
 		d256 = u256{lo: d.coef.u128.lo, hi: d.coef.u128.hi}
 		e128 = e.coef.u128
 	} else {
-		factor = max(d.prec, e.prec)
+		factor = _max(d.prec, e.prec)
 		d256 = d.coef.u128.MulToU256(pow10[factor-d.prec])
 
 		// If divisor >= 2^128, we can't use fastQuo and have to fallback to big.Int

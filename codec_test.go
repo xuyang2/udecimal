@@ -473,7 +473,8 @@ func BenchmarkAppendText(b *testing.B) {
 	d := MustParse("123456.123456")
 
 	b.ResetTimer()
-	for range b.N {
+	// for range b.N {
+	for i := 0; i < b.N; i++ {
 		a, _ = d.AppendText(a)
 	}
 }
@@ -483,7 +484,8 @@ func BenchmarkAppendBinary(b *testing.B) {
 	d := MustParse("123456.123456")
 
 	b.ResetTimer()
-	for range b.N {
+	// for range b.N {
+	for i := 0; i < b.N; i++ {
 		a, _ = d.AppendBinary(a)
 	}
 }
